@@ -36,9 +36,10 @@ If need be, you can change this channel in the transmitter and receiver source c
 - 2 capacitors 100µF
 - RC cable with servo type plug.
 
-![https://m.media-amazon.com/images/S/aplus-media/sc/a24c6a24-e4c0-46b9-ba8b-c38221ad67d7.\_\_CR0,0,970,600\_PT0\_SX970\_V1\_\_\_.jpg](Aspose.Words.c4ff890a-76dc-4b7f-a4ed-75e5012396ef.001.jpeg)This module has the same size as the Arduino Pro Mini. If the SMA connector is too bulky it can be removed and the antenna replaced by a simple wire.
-
-The receiver is powered directly from the RC equipment, in 5v, through for example a spare servo plug on the receiver.
+![https://m.media-amazon.com/images/S/aplus-media/sc/a24c6a24-e4c0-46b9-ba8b-c38221ad67d7.\_\_CR0,0,970,600\_PT0\_SX970\_V1\_\_\_.jpg](Aspose.Words.c4ff890a-76dc-4b7f-a4ed-75e5012396ef.001.jpeg) 
+This module has the same size as the Arduino Pro Mini. If the SMA connector is too bulky it can be removed and the antenna replaced by a simple wire. 
+During the realization / wiring it may be wise to let at least the I2C SDA/SCL pins, as well as VCC / GND easily available for future development (airspeed sensor for example)
+The transmitter is powered directly from the RC equipment, in 5v, through for example a spare servo plug on the receiver.
 
 ## The receiver / ground station
 
@@ -64,6 +65,9 @@ At power on, the system announces its current configuration and waits for a link
 
 ### Setup menu. Buttons handling
 
+
+The receiver in ground station features 2 push buttons used for managing the volume and the setup menu: buttonUp and buttonDown. 
+
 The setup menu allows to control: 
 - Activation / deactivation of the variometer
 - Activation / deactivation of the altimeter
@@ -71,18 +75,15 @@ The setup menu allows to control:
 - Choice of the step for altitude announcement
 - Volume management for the messages
 
-The configuration is saved and will be retrieved at next power up.
+The configuration is saved and will be retrieved at next power up. 
 
-The receiver in ground station features 2 push buttons used for controlling the voice section: buttonUp and buttonDown.
-
-When in normal mode:
+When in normal mode:   
 - A click on any button will increment/decrement the volume of the piezo used for the variometer.
 - Pressing both buttons 1 second will announce the current altitude and the maximum altitude since power on.
-- Long push on any button: enter the setting mode. 
+- Long push on any button will enter the setting mode. 
 
-When in setting mode:
-The system will announce the menu entry and the associated parameter value.
-
+When in setting mode:   
+The system will announce the menu entry and the associated parameter value. 
 - short push on a button:
   - if the current entry is “Exit the setting menu”:  Exit setting mode and return to normal mode
   - For other entries:  increment or decrement a parameter value, or toggle the value. The system will announce the new value 
