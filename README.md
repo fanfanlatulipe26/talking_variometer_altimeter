@@ -33,7 +33,11 @@ If need be, you can change this channel in the transmitter and receiver source c
 - 2 capacitors 100µF
 - RC cable with servo type plug. 
  <img src="/images/emetteur_vario.jpg"  width="800">
-<img src="/images/nRF24L01.jpg" width="300">
+ 
+|<img src="/images/nRF24L01.jpg" width="300">|<img src="/images/GY-63.JPG" width="150">|<img src="/images/GY-63.JPG" width="150">|
+|-------|-----|----|
+| NRF24L01 with PA+LNA (E01-ML01DP5)|GY-63 (MS5611)|
+
 This NRF24L01(E01-ML01DP5) module has the same size as the Arduino Pro Mini. If the SMA connector is too bulky it can be removed and the antenna replaced by a simple wire.  <br>
 During the realization / wiring it may be wise to let at least the I2C SDA/SCL pins, as well as VCC / GND easily available for future development (airspeed sensor for example).  <br>
 The transmitter is powered directly from the RC equipment, in 5v, through for example a spare servo plug on the receiver.
@@ -53,9 +57,12 @@ The transmitter is powered directly from the RC equipment, in 5v, through for ex
 - Lipo charge / discharge management module TP4056
 - Switch 
  <img src="/images/recepteur_vario.jpg"  width="800">
-<img src="/images/chargeur.JPG" width="300">
-<img src="/images/buzzer.JPG" width="300">
-Don’t forget to adapt the charge current in the TP4056 module to the lipo you use ([see for example this document](https://www.best-microcontroller-projects.com/tp4056.html)). As delivered the module is usually set up for 1000ma battery.
+ 
+|<img src="/images/DFPlayer.jpg" width="150">|<img src="/images/chargeur.JPG" width="150">|<img src="/images/buzzer.JPG" width="70">|
+|-------|-----|---|
+
+Don’t forget to adapt the charge current in the TP4056 module to the lipo you use ([see for example this document](https://www.best-microcontroller-projects.com/tp4056.html)). As delivered the module is usually set up for 1000ma battery.  
+The sound of the buzzer may be greatly changed when you plug the small hole at the top of the buzzer with a piece of tape.
 
 ## Using the variometer / altimeter
 
@@ -86,7 +93,9 @@ The system will announce the menu entry and the associated parameter value.
 - short push on a button:
   - if the current entry is “Exit the setting menu”:  Exit setting mode and return to normal mode
   - For other entries:  increment or decrement a parameter value, or toggle the value. The system will announce the new value 
-- Long push on a button: register le current value and pass to the next/ previous entry in the menu.
+- Long push on a button: register le current value and pass to the next/ previous entry in the menu.  
+
+Remark: action on a button is not detected when the system is talking.
 
 ## Development requirements:  
 
@@ -106,7 +115,7 @@ In order to optimize the response time of the DFPlayer modules it is better to u
 
 ## Customizing the language.
 
-With the help of **gTTS** (*Google Text-to-Speech*), a Python library and CLI tool to interface with Google Translate's text-to-speech API we generate spoken MP3 files that are then copied on the micro SD card.  (More info here <http://gtts.readthedocs.org/>)
+With the help of **gTTS** (*Google Text-to-Speech*), a Python library and CLI tool to interface with Google Translate's text-to-speech API we generate spoken MP3 files that are then copied on the micro SD card.  (More info <http://gtts.readthedocs.org/>)
 
 2 kinds of files are generated:
 
@@ -117,11 +126,10 @@ With the help of **gTTS** (*Google Text-to-Speech*), a Python library and CLI to
 
 Software environment
 
-You must install **Python** on your system as well as gTTS and eyeD3 libraries.
+You must install **Python** on your system as well as **gTTS** and **eyeD3** libraries.
 ```
-\>pip install gTTS
-
-\> pip install eyeD3
+>pip install gTTS
+>pip install eyeD3
 ```
 Customization:
 
@@ -135,18 +143,17 @@ Example: 		8;Altitude announced in; choice of meters or feet
 ```
 Make a copy of Python script [generate_mp3.py](english/generate_mp3.py) and edit it (a simple text editor is OK …)   
 Only one line must be change to customize the language:
-
+```
 langage = 'en'     # change this line for support of a new language.
-
+```
 The list of supported languages is available [here](list_of_languages.txt) (more than 50)
 
 In Windows, start a PowerShell and from the newly created working directory run your customized script generate\_mp3.py
-
-`	`>cd “path to my\_new\_dir”
-
-`	`>python generate\_mp3.py
-
-The Python script generates an mp3 folder, with subfolders 01 to 07 containing the mp3 files that must be copied at the root of the SD card. (See above link ….)
+```
+>cd “path to my_new_dir”
+>python generate_mp3.py
+```
+The Python script generates an mp3 folder, with subfolders 01 to 07 containing the mp3 files that must be copied at the root of the SD card. ([See above](#building-the-sd-card))
 
 Check mp3 files, mainly in directory “07”: pronunciation may be incorrect if the text file contains accented characters. Adapt/remove theses characters and regenerate the mp3 files. (Information about character set used/supported by gtts is welcome …)
 
