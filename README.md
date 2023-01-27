@@ -34,9 +34,11 @@ If need be, you can change this channel in the transmitter and receiver source c
 - RC cable with servo type plug. 
  <img src="/images/emetteur_vario.jpg"  width="800">
  
-|<img src="/images/nRF24L01.jpg" width="300">|<img src="/images/GY-63.JPG" width="150">|<img src="/images/GY-63.JPG" width="150">|
+|<img src="/images/nRF24L01.jpg" width="200">|<img src="/images/GY-63.JPG" width="150">|<img src="/images/vario_3.jpg" width="200">|
 |-------|-----|----|
 | NRF24L01 with PA+LNA (E01-ML01DP5)|GY-63 (MS5611)|
+|<img src="/images/vario_1.jpg" width="200">|<img src="/images/vario_2.jpg" width="200">|<img src="/images/vario_4.jpg" width="200">|
+
 
 This NRF24L01(E01-ML01DP5) module has the same size as the Arduino Pro Mini. If the SMA connector is too bulky it can be removed and the antenna replaced by a simple wire.  <br>
 During the realization / wiring it may be wise to let at least the I2C SDA/SCL pins, as well as VCC / GND easily available for future development (airspeed sensor for example).  <br>
