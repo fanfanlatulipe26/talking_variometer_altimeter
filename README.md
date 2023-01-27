@@ -1,22 +1,19 @@
-# talking_variometer_altimeter
-A Poor Man’s simple and inexpensive Arduino-based RC sailplane talking variometer and altimeter
+## talking_variometer_altimeter
+### A Poor Man’s simple and inexpensive Arduino-based RC sailplane talking variometer and altimeter
 
 This project is built around Rolf R Bakke’s project of a [DIY simple and inexpensive Arduino-based sailplane variomete](<https://www.rcgroups.com/forums/showthread.php?1749208-DIY-simple-and-inexpensive-Arduino-based-sailplane-variometer>).  
 For the fun, a “voice output” was added and the height of the model is spoken on demand.  
-The system register the highest altitude reached during the current flight and can announce numbers up to 10999, positive or negative. (Hope that you are simply at the top of the slope if announced altitude is negative …)  
-The language used for the voice output is easily customizable.   
 
-Built with inexpensive modules easily available, **it doesn’t rely on some telemetry channel offered by RC equipments** but provides its own downlink transmitter and receiver.    
-The transmitter onboard the model includes:
-- An Arduino Pro Mini board
-- A MS5611 barometric pressure sensor
-- a NRF24L01 2.4Ghz transceiver 
+Main features:  
+- Standalone system: it doesn’t rely on some telemetry channel offered by RC equipments but provides its own downlink transmitter and receiver in the 2.4 MHz band.
+- Announce altitude increases with a specified step
+- Announce on demand max / current altitude 
+- Setup menu
+- Choice of unit meters / feet
+- Language for voice output easily customizable
+- Built with inexpensive modules easily available
 
-The receiver in ground station includes: 
-- An Arduino Pro Mini
-- a NRF24L01 2.4Ghz transceiver 
-- a DFPlayer MP3 module
-- a speaker and a buzzer
+The system register the highest altitude reached during the current flight and can announce numbers up to 10999, positive or negative. (Hope that you are simply at the top of the slope if announced altitude is negative …)   
 
 The transmitter and the receiver use only on one channel in the 2.4 GHz band.
 If need be, you can change this channel in the transmitter and receiver source code. See at the beginning of source code the line
@@ -31,14 +28,14 @@ If need be, you can change this channel in the transmitter and receiver source c
 
 - Arduino Pro Mini 5v 16Mhz
 - Module GY-63 MS5611 barometric pressure sensor
-- Module NRF24L01 with PA+LNA  
+- Module NRF24L01 with PA+LNA (E01-ML01DP5)
 - MCP1700 3.3v voltage regulator
 - 2 capacitors 100µF
-- RC cable with servo type plug.
-
-![https://m.media-amazon.com/images/S/aplus-media/sc/a24c6a24-e4c0-46b9-ba8b-c38221ad67d7.\_\_CR0,0,970,600\_PT0\_SX970\_V1\_\_\_.jpg](Aspose.Words.c4ff890a-76dc-4b7f-a4ed-75e5012396ef.001.jpeg) 
-This module has the same size as the Arduino Pro Mini. If the SMA connector is too bulky it can be removed and the antenna replaced by a simple wire. 
-During the realization / wiring it may be wise to let at least the I2C SDA/SCL pins, as well as VCC / GND easily available for future development (airspeed sensor for example)
+- RC cable with servo type plug. 
+ <img src="/images/emetteur_vario.jpg"  width="800">
+<img src="/images/nRF24L01.jpg" width="300">
+This NRF24L01(E01-ML01DP5) module has the same size as the Arduino Pro Mini. If the SMA connector is too bulky it can be removed and the antenna replaced by a simple wire.  <br>
+During the realization / wiring it may be wise to let at least the I2C SDA/SCL pins, as well as VCC / GND easily available for future development (airspeed sensor for example).  <br>
 The transmitter is powered directly from the RC equipment, in 5v, through for example a spare servo plug on the receiver.
 
 ## The receiver / ground station
@@ -46,7 +43,7 @@ The transmitter is powered directly from the RC equipment, in 5v, through for ex
 **Bill of material:**
 
 - Arduino Pro Mini 3.3v 8Mhz
-- Module NRF24L01 (optional: with PA+LNA )
+- Module NRF24L01 (optional: with PA+LNA E01-ML01DP5 )
 - DFPlayer Mini MP3 reader
 - MCP1700 3.3v voltage regulator
 - 1 capacitor 100µF
@@ -55,7 +52,9 @@ The transmitter is powered directly from the RC equipment, in 5v, through for ex
 - Lipo battery 1s 120ma as a minimum
 - Lipo charge / discharge management module TP4056
 - Switch 
-
+ <img src="/images/recepteur_vario.jpg"  width="800">
+<img src="/images/chargeur.JPG" width="300">
+<img src="/images/buzzer.JPG" width="300">
 Don’t forget to adapt the charge current in the TP4056 module to the lipo you use ([see for example this document](https://www.best-microcontroller-projects.com/tp4056.html)). As delivered the module is usually set up for 1000ma battery.
 
 ## Using the variometer / altimeter
@@ -78,7 +77,7 @@ The setup menu allows to control:
 The configuration is saved and will be retrieved at next power up. 
 
 When in normal mode:   
-- A click on any button will increment/decrement the volume of the piezo used for the variometer.
+- A click on any button will increment/decrement the volume of the buzzer used for the variometer.
 - Pressing both buttons 1 second will announce the current altitude and the maximum altitude since power on.
 - Long push on any button will enter the setting mode. 
 
@@ -89,29 +88,23 @@ The system will announce the menu entry and the associated parameter value.
   - For other entries:  increment or decrement a parameter value, or toggle the value. The system will announce the new value 
 - Long push on a button: register le current value and pass to the next/ previous entry in the menu.
 
-Development requirements:
+## Development requirements:  
 
-Arduino IDE
+- Arduino IDE
+- RF24 library by TMRH20 installed with Arduino IDE library manager.
+- toneAC by Tim Eckel installed with Arduino IDE library manager.
+- Button library by t3db0t installed from <https://github.com/t3db0t/Button>
+- Other libraries used by the project come with the IDE install. 
 
-RF24 library by TMRH20 installed with Arduino IDE library manager.
+## Building the SD card
 
-toneAC by Tim Eckel installed with Arduino IDE library manager.
+Voice output is generated by the DFPlayer module that includes a micro SD memory card slot with mp3 files.  
+As delivered, the package already includes the files for English, French, Italian and Spanish but it is very easy to generate the files for a new language as we will see latter.   
+The set of file for a specific language uses around 12Mb.  
+Each directory for a language contains an mp3 folder, with subfolders 01 to 06 containing themselves the mp3 files. These subfolders must be copied at the root of the SD card.   
+In order to optimize the response time of the DFPlayer modules it is better to use a newly formatted card and make the copy one folder after the other, in the order 00 to 06, just to be sure that folder 00 is physically copied first on the SD card, 01 the second etc..  (In Windows, it is impossible to control the order of the copy in a multiple select/drag/drop scenario) 
 
-Button library by t3db0t installed from <https://github.com/t3db0t/Button>
-
-Other libraries used by the project come with the IDE install. 
-
-Building the SD card
-
-Voice output is generated by the DFPlayer module that includes a micro SD memory card slot with mp3 files.
-
-As delivered, the package already includes the files for English, French, Italian and Spanish but it is very easy to generate the files for a new language as we will see latter.
-
-The set of file for a specific language uses around 12Mb.
-
-Each directory for a language contains an mp3 folder, with subfolders 01 to 06 containing themselves the mp3 files. These subfolders must be copied at the root of the SD card. In order to optimize the response time of the DFPlayer modules it is better to use a newly formatted card and make the copy one folder after the other, in the order 00 to 06, just to be sure that folder 00 is physically copied first on the SD card, 01 the second etc..  (In Windows, it is impossible to control the order of the copy in a multiple select/drag/drop scenario) 
-
-Customizing the language.
+## Customizing the language.
 
 With the help of **gTTS** (*Google Text-to-Speech*), a Python library and CLI tool to interface with Google Translate's text-to-speech API we generate spoken MP3 files that are then copied on the micro SD card.  (More info here <http://gtts.readthedocs.org/>)
 
@@ -125,30 +118,25 @@ With the help of **gTTS** (*Google Text-to-Speech*), a Python library and CLI to
 Software environment
 
 You must install **Python** on your system as well as gTTS and eyeD3 libraries.
-
+```
 \>pip install gTTS
 
 \> pip install eyeD3
-
+```
 Customization:
 
-In a new working directory, make a copy of file one of the delivered [messages.txt](english/messages.txt) file and edit it
-
-Each line of the file is composed of 3 field separated by “;”. 
-
-Don’t change the first line of the file nor the first field (a file number) of each line.
-
-Translate every second field (Google Translate is my friend …).
-
-The third field is just a comment and ignored by the process
-
+In a new working directory, make a copy of file one of the delivered [messages.txt](english/messages.txt) file and edit it.  
+Each line of the file is composed of 3 field separated by “;”.   
+Don’t change the first line of the file nor the first field (a file number) of each line.  
+Translate every second field (Google Translate is my friend …).  
+The third field is just a comment and ignored by the process.
+```
 Example: 		8;Altitude announced in; choice of meters or feet
-
-Make a copy of Python script [generate_mp3.py](english/generate_mp3.py) and edit it (a simple text editor is OK …)
-
+```
+Make a copy of Python script [generate_mp3.py](english/generate_mp3.py) and edit it (a simple text editor is OK …)   
 Only one line must be change to customize the language:
 
-`	`langage = 'en'     # change this line for support of a new language.
+langage = 'en'     # change this line for support of a new language.
 
 The list of supported languages is available [here](list_of_languages.txt) (more than 50)
 
