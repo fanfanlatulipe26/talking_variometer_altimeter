@@ -19,7 +19,7 @@ The transmitter and the receiver use only on one channel in the 2.4 GHz band.
 If need be, you can change this channel in the transmitter and receiver source code. See at the beginning of source code the line
 
 ```
-#define channelVario 0x50 
+#define channelVario 0x50   //  Between 0 and 125  (0 and 0x7D)
 ```
 
 ## The transmitter
@@ -37,12 +37,14 @@ If need be, you can change this channel in the transmitter and receiver source c
 |<img src="/images/nRF24L01.jpg" width="200">|<img src="/images/GY-63.JPG" width="150">|<img src="/images/vario_3.jpg" width="200">|
 |-------|-----|----|
 | NRF24L01 with PA+LNA (E01-ML01DP5)|GY-63 (MS5611)|
-|<img src="/images/vario_1.jpg" width="200">|<img src="/images/vario_2.jpg" width="200">|<img src="/images/vario_4.jpg" width="200">|
-
+|<img src="/images/vario_1.jpg" width="200">|<img src="/images/vario_2.jpg" width="200">|<img src="/images/vario_4.jpg" width="200">|  
 
 This NRF24L01(E01-ML01DP5) module has the same size as the Arduino Pro Mini. If the SMA connector is too bulky it can be removed and the antenna replaced by a simple wire.  <br>
-During the realization / wiring it may be wise to let at least the I2C SDA/SCL pins, as well as VCC / GND easily available for future development (airspeed sensor for example).  <br>
-The transmitter is powered directly from the RC equipment, in 5v, through for example a spare servo plug on the receiver.
+
+The transmitter is powered directly from the RC equipment, in 5v, through for example a spare servo plug on the receiver.  
+
+**Wiring:** During the realization / wiring it may be wise to let at least the I2C SDA/SCL pins, as well as VCC / GND easily available for future development (airspeed sensor for example).   
+Depending on the physical implementation pin 7 (CE of the NRF24L01) and 8 (CS ) may be relocated elsewhere if it helps. See the “#define” in the source code. Others pins assignment must be respected.
 
 ## The receiver / ground station
 
@@ -64,7 +66,10 @@ The transmitter is powered directly from the RC equipment, in 5v, through for ex
 |-------|-----|---|
 
 Don’t forget to adapt the charge current in the TP4056 module to the lipo you use ([see for example this document](https://www.best-microcontroller-projects.com/tp4056.html)). As delivered the module is usually set up for 1000ma battery.  
-The sound of the buzzer may be greatly changed when you plug the small hole at the top of the buzzer with a piece of tape.
+The sound of the buzzer may be greatly changed when you plug the small hole at the top of the buzzer with a piece of tape.   
+
+**Wiring:** some pins assignment must be respected: pins 9/10 are reserved for the buzzer and pins 11/12/13 are reserved for the NRF24L01. Other pins may be relocated if it helps the wiring. See “#define” in the source code.
+
 
 ## Using the variometer / altimeter
 
