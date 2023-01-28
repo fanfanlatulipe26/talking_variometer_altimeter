@@ -131,14 +131,14 @@ With the help of **gTTS** (*Google Text-to-Speech*), a Python library and CLI to
   - ten MP3 files for the thousand 1000 to 10000 stored in folder 05
 - A set of files for menu management. and announces  stored in folder 06
 
-Software environment
+**Software environment:**
 
 You must install **Python** on your system as well as **gTTS** and **eyeD3** libraries.
 ```
 >pip install gTTS
 >pip install eyeD3
 ```
-Customization:
+**Customization:**
 
 In a new working directory, make a copy of file one of the delivered [messages.txt](english/messages.txt) file and edit it.  
 Each line of the file is composed of 3 field separated by “;”.   
@@ -162,7 +162,20 @@ In Windows, start a PowerShell and from the newly created working directory run 
 ```
 The Python script generates an mp3 folder, with subfolders 01 to 07 containing the mp3 files that must be copied at the root of the SD card. ([See above](#building-the-sd-card))
 
-Check mp3 files, mainly in directory “07”: pronunciation may be incorrect if the text file contains accented characters. Adapt/remove theses characters and regenerate the mp3 files. (Information about character set used/supported by gtts is welcome …)
+Check mp3 files, mainly in directory “07”: pronunciation may be incorrect if the text file contains accented characters. Adapt/remove theses characters and regenerate the mp3 files. (Information about character set used/supported by gtts is welcome …)  
+
+**Warning:** gTTS needs  access to Google servers, and if the network is slow or access to google.com unavailable, the Python script may fails. You can try to use an other Top-level domain for the Google Translate.   
+Choosing an other Top Level domain may also help to get a better translation with your local ‘accent’
+See description of [tld parameter](https://gtts.readthedocs.io/en/latest/module.html#gtts.tts.gTTS) and of [Localized ‘accents’](https://gtts.readthedocs.io/en/latest/module.html#localized-accents)  in gTTS documntation.   
+Only one line must be change in the script generate_mp3.py to customize the Top Level domain:
+```
+topLevelDomain = 'com'  # change this line if you want a specific Top Level Domain.
+```
+The list of supported Top Level Domain  is available [here.](https://gtts.readthedocs.io/en/latest/module.html#localized-accents)   
+
+---
+
+
 
 
 
