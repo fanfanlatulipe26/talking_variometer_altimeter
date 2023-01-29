@@ -160,12 +160,12 @@ In Windows, start a PowerShell and from the newly created working directory run 
 >cd “path to my_new_dir”
 >python generate_mp3.py
 ```
-The Python script generates an mp3 folder, with subfolders 01 to 07 containing the mp3 files that must be copied at the root of the SD card. ([See above](#building-the-sd-card))
+The Python script generates an mp3 folder, with subfolders 01 to 06 containing the mp3 files that must be copied at the root of the SD card. ([See above](#building-the-sd-card))
 
-Check mp3 files, mainly in directory “07”: pronunciation may be incorrect if the text file contains accented characters. Adapt/remove theses characters and regenerate the mp3 files. (Information about character set used/supported by gtts is welcome …)  
+Check mp3 files, mainly in directory “06” for the messages files.
 
 **Warning:** gTTS needs  access to Google servers, and if the network is slow or access to google.com unavailable, the Python script may fails. You can try to use an other Top-level domain for the Google Translate.   
-Choosing an other Top Level domain may also help to get a better translation with your local ‘accent’
+Choosing an other Top Level domain may also help to get **a better translation with your local ‘accent’.**   
 See description of [tld parameter](https://gtts.readthedocs.io/en/latest/module.html#gtts.tts.gTTS) and of [Localized ‘accents’](https://gtts.readthedocs.io/en/latest/module.html#localized-accents)  in gTTS documntation.   
 Only one line must be change in the script generate_mp3.py to customize the Top Level domain:
 ```
