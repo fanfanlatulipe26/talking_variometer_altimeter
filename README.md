@@ -65,11 +65,12 @@ Depending on the physical implementation pin 7 (CE of the NRF24L01) and 8 (CS ) 
 |<img src="/images/DFPlayer.jpg" width="150">|<img src="/images/chargeur.JPG" width="150">|<img src="/images/buzzer.JPG" width="70">|
 |-------|-----|---|
 
-Don’t forget to adapt the charge current in the TP4056 module to the lipo you use ([see for example this document](https://www.best-microcontroller-projects.com/tp4056.html)). As delivered the module is usually set up for 1000ma battery.  
+Don’t forget to adapt the charge current in the TP4056 module to the lipo you use ([see for example this video](https://www.youtube.com/watch?v=oMez6wHsvC4)). As delivered the module is usually set up for 1000ma battery.  
 The sound of the buzzer may be greatly changed when you plug the small hole at the top of the buzzer with a piece of tape.   
 
-**Wiring:** some pins assignment must be respected: pins 9/10 are reserved for the buzzer and pins 11/12/13 are reserved for the NRF24L01. Other pins may be relocated if it helps the wiring. See “#define” in the source code.
+**Wiring:** some pins assignment must be respected: pins 9/10 are reserved for the buzzer and pins 11/12/13 are reserved for the NRF24L01. Other pins may be relocated if it helps the wiring. See “#define” in the source code.  
 
+More information / pictures [here](REALIZATION.md)  
 
 ## Using the variometer / altimeter
 
