@@ -51,7 +51,7 @@ Depending on the physical implementation pin 7 (CE of the NRF24L01) and 8 (CS ) 
 **Bill of material:**
 
 - Arduino Pro Mini 3.3v 8Mhz
-- Module NRF24L01 (optional: with PA+LNA E01-ML01DP5 )
+- Module NRF24L01 (optional: with PA+LNA E01-ML01DP5, or SMD NRF24L odule with adapter for Pro Mini)
 - DFPlayer Mini MP3 reader
 - MCP1700 3.3v voltage regulator
 - 1 capacitor 100µF
@@ -62,8 +62,8 @@ Depending on the physical implementation pin 7 (CE of the NRF24L01) and 8 (CS ) 
 - Switch 
  <img src="/images/recepteur%20vario%20NRF24%20public_bb.jpg"  width="600">
  
-|<img src="/images/DFPlayer.jpg" width="150">|<img src="/images/chargeur.JPG" width="150">|<img src="/images/buzzer.JPG" width="70">|
-|-------|-----|---|
+|<img src="/images/DFPlayer.jpg" width="150">|<img src="/images/chargeur.JPG" width="150">|<img src="/images/buzzer.JPG" width="70">|<img src="/images/recept_1.jpg" width="300">|
+|-------|-----|---|---|
 
 Don’t forget to adapt the charge current in the TP4056 module to the lipo you use ([see for example this video](https://www.youtube.com/watch?v=oMez6wHsvC4)). As delivered the module is usually set up for 1000ma battery.  
 The sound of the buzzer may be greatly changed when you plug the small hole at the top of the buzzer with a piece of tape.   
