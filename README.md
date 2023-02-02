@@ -32,7 +32,7 @@ If need be, you can change this channel in the transmitter and receiver source c
 - MCP1700 3.3v voltage regulator
 - 2 capacitors 100µF
 - RC cable with servo type plug. 
- <img src="/images/emetteur_vario.jpg"  width="800">
+ <img src="/images/emetteur%20NRF24%20vario_bb.jpg"  width="600">
  
 |<img src="/images/nRF24L01.jpg" width="200">|<img src="/images/GY-63.JPG" width="150">|<img src="/images/vario_3.jpg" width="200">|
 |-------|-----|----|
@@ -60,7 +60,7 @@ Depending on the physical implementation pin 7 (CE of the NRF24L01) and 8 (CS ) 
 - Lipo battery 1s 120ma as a minimum
 - Lipo charge / discharge management module TP4056
 - Switch 
- <img src="/images/recepteur_vario.jpg"  width="800">
+ <img src="/images/recepteur%20vario%20NRF24%20public_bb.jpg"  width="600">
  
 |<img src="/images/DFPlayer.jpg" width="150">|<img src="/images/chargeur.JPG" width="150">|<img src="/images/buzzer.JPG" width="70">|
 |-------|-----|---|
