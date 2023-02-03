@@ -2,7 +2,9 @@
 
 We use here a small easily available SMD module for the NRF24L01.
 It fit very well on an Arduino Pro Mini with a specific adapter available at
-[OSHPARK](https://oshpark.com/shared_projects/CtW4Xaow) and gives a compact realization.
+[OSHPARK](https://oshpark.com/shared_projects/CtW4Xaow) and gives a compact realization.  
+
+More information on this adapter [here](http://www.thinkering.de/cms/?p=687) and [here](https://forum.mysensors.org/topic/6220/nrf24l01-1-27mm-arduino-pro-mini-adapter-board). 
 
 As designed, the adapter uses pins 9 and 10 of the Arduino for CE/CS but we must reserved these pins for the toneAC library and the buzzer.
 The adapter can’t be soldered directly on the Pro Mini and we need to use some spacers and wiring to relocate CS and CE to pin 5 and A0. Picture is worth a thousand words.
