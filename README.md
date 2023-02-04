@@ -76,6 +76,7 @@ More information / pictures [here](REALIZATION.md)
 
 At power on, the system announces its current configuration and waits for a link with the transceiver. The current altitude is registered and the bip-bip of the variometer starts (if activated). Each time the current altitude of the model increments by a configurable step, the gain in altitude is announced (if activated).
 
+Video on [YouTube](https://www.youtube.com/watch?v=yhJU-6fNBOY)   
 
 ### Setup menu. Buttons handling
 
