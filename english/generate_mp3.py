@@ -13,6 +13,8 @@
 
 langage = 'en'     # change this line for support of a new language. 
 
+topLevelDomain = 'us'  # change this line if you want a specific Top Level Domain.
+#topLevelDomain = 'com'  # change this line if you want a specific Top Level Domain.
 #
 
 from gtts import gTTS
@@ -31,7 +33,7 @@ shutil.rmtree(dirMp3,ignore_errors=True)
 os.makedirs(dirMp3,exist_ok=True)
 
 for n in range(0,1000):
-  tts = gTTS(str(n), lang=langage)
+  tts = gTTS(str(n), lang=langage, tld= topLevelDomain )
   if(str(int(n/filePerDir)+1).zfill(2) != curDir ):
     curDir = str(int(n/filePerDir)+1).zfill(2)
     os.makedirs(dirMp3 + '/' + curDir,exist_ok=True)
@@ -47,7 +49,7 @@ for n in range(0,1000):
 curDir = str(int(1000/filePerDir)+1).zfill(2)  # folder for "thousands"
 os.makedirs(dirMp3 + '/' + curDir,exist_ok=True)
 for n in range(1000,11000,1000):
-  tts = gTTS(str(n), lang=langage)
+  tts = gTTS(str(n), lang=langage, tld= topLevelDomain )
   filename = str(int(n/1000)).zfill(3)
   print(n,  curDir ,  filename)
   fullPath = dirMp3 + '/' + curDir + '/' + filename
@@ -60,14 +62,16 @@ for n in range(1000,11000,1000):
 curDir = str(int(1000/filePerDir)+2).zfill(2)  # folder for "messages"
 os.makedirs(dirMp3 + '/' + curDir,exist_ok=True)
 print("Folder for messages",curDir)
-with open('messages.txt') as csvfile:
+with open('messages.txt', encoding='utf8') as csvfile:
          audioreader = csv.reader(csvfile, delimiter=';')
          next(audioreader)
          for row in audioreader:
+             if row == []:
+                 continue
              name = row[0]
              text = row[1]
              filename = str(name).zfill(3) 
-             tts = gTTS(text, lang=langage)
+             tts = gTTS(text, lang=langage, tld= topLevelDomain )
              fullPath = dirMp3 + '/' + curDir + '/' + filename      
              tts.save(fullPath + '.mp3')
              print(filename, text)

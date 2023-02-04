@@ -1,0 +1,28 @@
+File; Messaggio di testo; Osservazioni
+1; Benvenuti nel menù di configurazione.;
+2; Altimetro attivato.;
+3; Altimetro disattivato.;
+4; Altimetro;
+5; Variometro attivato.;
+6; Variometro disattivato.;
+7; Variometro;
+8; Altitudine annunciata in; Scelta dell'unità di misurazione in metri o piedi
+9; Altitudine annunciata tutti i;
+10; Massima altitudine;
+11; Altitudine;
+12; Equilibrio tra altimetro e variometro;
+13; Volume;
+14; Uscita del menù di configurazione.;
+15; Lasci il menù di configurazione.;
+16; attivato.;
+17; disattivato.;
+18; metro.; Singolare dell'unità di misurazione 
+19; metri.; plurale dell'unità di misurazione 
+20; piede.; Singolare dell'unità di misurazione
+21; piedi.; plurale dell'unità di misurazione
+22; In attesa del variometro.;
+23; Altitudine del terreno;
+24; meno; Per numeri negativi
+25; Contatto perduto.;
+26; Errore. Repertorio;
+27; Grazie per l'uso del variometro altimetro parlando.; messaggio di benvenuto.

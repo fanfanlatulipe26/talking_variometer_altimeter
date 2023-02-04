@@ -1,10 +1,10 @@
 File;Message text;Remarks
-1;Welcome to the setup menu;
-2;Altimeter on
-3;Altimeter off
+1;Welcome to the setup menu.;
+2;Altimeter on.;
+3;Altimeter off.;
 4;Altimeter;
-5;Variometer on
-6;Variometer off;
+5;Variometer on.;
+6;Variometer off.;
 7;Variometer;
 8;Altitude announced in; choice of meters or feet
 9;Altitude announced every;
@@ -12,17 +12,17 @@ File;Message text;Remarks
 11;Altitude;
 12;Balance between altitude and vario;
 13;Volume;
-14;Exit setup menu;
-15;You exit the setup menu;
-16;on;
-17;off;
-18;metre;singular of the unit of measure meter
-19;meters; plural of the unit of measurement meter
-20;foot;singular of the unit of measure feet
-21;feet; plural of the unit of measurement feet
-22;Waiting for the vario;
+14;Exit setup menu.;
+15;You exit the setup menu.;
+16;on.;
+17;off.;
+18;metre.;singular of the unit of measure meter
+19;meters.; plural of the unit of measurement meter
+20;foot.;singular of the unit of measure feet
+21;feet.; plural of the unit of measurement feet
+22;Waiting for the variometer.;
 23;Airfield elevation;
 24;minus;for negative numbers
-25;Contact lost;
+25;Contact lost.;
 26;Error. Directory;
-27;Thanks for using the talking vario altimeter;
+27;Thanks for using the talking vario altimeter.;

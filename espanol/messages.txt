@@ -1,0 +1,28 @@
+Archivo; Mensaje de texto; Observaciones
+1; Bienvenido al menú de configuración.;
+2; Altímetro activado.;
+3; Altímetro desactivado.;
+4; Altímetro;
+5; Variómetro activado.;
+6; Variómetro desactivado.;
+7; Variómetro;
+8; Altitud anunciada en; elección de metros o pies
+9; Altitud anunciada cada;
+10; Altitud máxima;
+11; Altitud;
+12; Equilibrio entre altitud y vario;
+13; Volumen;
+14; Salida del menú de configuración.;
+15; Deja el menú de configuración.;
+16; activado.;
+17; desactivado.;
+18; metro.; Singular de la unidad de medida metro
+19; metros.; plural de la unidad de medida metros
+20; pié.; Singular de la unidad de medida
+21; pies.; plural de la unidad de medida
+22; Esperando el variometro.;
+23; Altitud del campo;
+24; menos; Para números negativos
+25; Contacto perdido.;
+26; Error. Repertorio;
+27; Gracias por usar el vario altímetro parlante.;
