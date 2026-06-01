@@ -110,7 +110,7 @@ Remark: action on a button is not detected when the system is talking.
 
 - Arduino IDE
 - RF24 library by TMRH20 installed with Arduino IDE library manager.
-- toneAC by Tim Eckel installed with Arduino IDE library manager.
+- toneAC by Tim Eckel installed with Arduino IDE library manager.(local copy of the library provided in this repository ...)  
 - Button library by t3db0t installed from <https://github.com/t3db0t/Button>
 - Other libraries used by the project come with the IDE install. 
 
